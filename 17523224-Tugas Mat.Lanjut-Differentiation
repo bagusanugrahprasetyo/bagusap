@@ -1,0 +1,44 @@
+install.packages("C:/Users/user/Downloads/Ryacas_0.3-4.tar.gz", repos = NULL, type = "source")
+
+rule8 <- function(x,n){
+  return(n*n^(n-1))
+}
+library(Ryacas)
+x <-Sym("x")
+Simplify(deriv(x^2,x))
+
+#17523224
+#Exercise no.1
+rule11 <- function(x){
+  return(1/2*sqrt(x))
+}
+library(Ryacas)
+x <-Sym("x")
+Simplify(deriv(x^2,x))
+
+#17523224
+#Exercise no.2.1
+y <- function(x){
+  return(2*x^5)
+}
+library(Ryacas)
+x <-Sym("x")
+Simplify(deriv(x^2,x))
+
+#17523224
+#Exercise no.2.2
+y <- function(x){
+  return(x^2+4)
+}
+library(Ryacas)
+x <-Sym("x")
+Simplify(deriv(x^2,x))
+
+#17523224
+#Exercise no.2.3
+y <- function(x){
+  return(x^5-6*x^7)
+}
+library(Ryacas)
+x <-Sym("x")
+Simplify(deriv(x^2,x))
