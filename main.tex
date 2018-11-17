@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\title{Matematika Lanjut - Metode Numerik}
+\author{Bagus Anugrah Prasetyo (17523224)}
+\date{November 2018}
+
+\begin{document}
+
+\maketitle
+
+\section*{Metode Numerik}
+
+Apa itu Metode Numerik?
+
+Metode numerik merupakan teknik yang digunakan untuk memformulasikan persoalan matematik sehingga dapat dipecahkan dengan operasi perhitungan / aritmatika biasa. Secara harfiah metode numerik ialah cara berhitung menggunakan angka-angka. Apakah Metode Numerik Hanya untuk Persoalan Matematika Rumit Saja? Jawabannya tidak, metode numerik berlaku umum, yakni dapat diterapkan untuk menyelesaikan persoalan matematika sederhana (yang juga dapat diselesaikan dengan metode analitik), maupun  persoalan matematika yang rumit. Sebagai contoh pada saat pengoperasian perhitungan pada komputer, langkah-langkah metode numerik diformulasikan menjadi program komputer yang dapat membantu mencari alternatif solusi, akibat perubahan beberapa parameter serta dapat meningkatkan tingkat ketelitian dengan mengubah-ubah nilai parameter. 
+
+Adapun alasan mempelajari metode numerik di dalam dunia ilmu komputer diantaranya: 
+
+1). Sebagai alat bantu pemecahan masalah matematika yang sangat ampuh, seperti mampu menangani sistem persamaan linear, ketidaklinearan dan geometri yang rumit, yang dalam masalah rekayasa tidak mungkin dipecahkan secara analitis.
+
+2). Mengetahui secara singkat dan jelas teori matematika yang mendasari paket program.
+
+3). Dapat digunakan untuk merancang program sesuai persoalan yang dihadapi pada masalah rekayasa.
+
+4). Menyediakan sarana memperkuat pengetahuan matematika, karena salah satu kegunaannya adalah menyederhanakan matematika yang lebih tinggi menjadi operasi-operasi matematika yang mendasar.
+
+5). Metode numerik diharapkan dapat mengatasi berbagai kelemahan - kelemahan metode yang ada sebelumnya.
+
+\section*{Bilangan Biner}
+
+Bilangan Biner atau dalam Bahasa Inggris “Binary” adalah sebuah jenis penulisan angka menggunakan dua simbol yaitu 0 dan 1. 
+
+Sistem bilangan biner adalah sebuah dasar dari semua bilangan berbasis digital. Dari bilangan biner kita bisa mengkonversi ke bilangan desimal. Sistem bilangan biner bisa juga disebut dengan bit atau Binary digit. Pengelompokan biner dalam istilah komputer selalu berjumlah 8, dengan istilah 1 Byte. Sistem coding komputer secara umum menggunakan sistem coding 1 byte. Bilangan biner yang digunakan itu ada 8 digit angka yang hanya berisikan angka 1 dan 0, tidak ada angka yang lain.
+
+Sistem bilangan biner pertama kali digunakan di awal abad 70-an oleh Thomas Harriot. Dalam bilangan biner sama seperti bilangan lainnya, berlaku juga penambahan biner, pengurangan biner, perkalian biner dan pembagian biner.
+
+Bilangan biner dan desimal.
+
+Konversi Bilangan Biner ke Desimal.
+
+Ada perbedaan dalam sistem bilangan biner dan desimal, dalam komputer data yang disimpan menggunakan bilangan biner, hanya menggunakan nol dan satu untuk mewakili semua data, jadi jika ingin melihat data yang lebih mudah dipahami, maka kita harus mengkonversinya ke bilangan desimal. Berikut ini cara Konversi bilangan biner ke desimal menggunakan Notasi Posisi:
+
+1). Tuliskan angka biner dan daftar kuadrat 2 dari kanan ke kiri. Misalnya kita ingin mengubah angka biner 100110112 menjadi desimal. Pertama, tuliskan. Kemudian, tuliskan kuadrat 2 dari kanan ke kiri. Mulailah dari 20, yaitu 1. Kenaikan kuadrat satu per satu. Hentikan jika jumlah angka yang ada di daftar sama dengan banyaknya digit angka biner. Contoh angkanya, 10011011, memiliki delapan digit, jadi daftarnya memiliki 8 angka, seperti ini: 128, 64, 32, 16, 8, 4, 2, 1.
+
+2). Tuliskan digit angka biner di bawah daftar kuadrat dua. Tuliskan angka 10011011 di bawah angka 128, 64, 32, 16, 8, 4, 2, dan 1 sehingga setiap digit biner memiliki kuadrat angka duanya masing-masing. Angka 1 di kanan angka biner sejajar dengan angka 1 dalam daftar kuadrat 2 dan selanjutnya. Anda juga bisa menuliskan digit biner di atas daftar kuadrat dua, jika Anda lebih memilihnya. Yang penting adalah Anda bisa memasangkannya.
+
+3). Hubungkan digit dari angka biner dengan daftar kuadrat dua. Buatlah garis, mulai dari kanan, menghubungkan setiap digit angka biner dengan kuadrat dua. Mulailah memberi garis dari digit pertama angka biner dengan kuadrat angka dua pertama dalam daftar yang ada di atasnya. Kemudian, tariklah garis dari digit kedua angka biner ke kuadrat angka dua kedua dalam daftar. Lanjutkan menghubungkan setiap digit dengan kuadrat dua. Hal ini akan membantu Anda dalam membayangkan hubungan antara kedua kumpulan angka.
+
+4). Tuliskan nilai akhir setiap kuadrat dua. Sisirlah setiap digit angka biner. Jika digitnya adalah 1, tulislah kuadrat dua pasangannya di bawah angka 1 tersebut. Jika digitnya adalah 0, tulislah 0 di bawah angka 0.
+
+\textit{Karena 1 berpasangan dengan 1, hasilnya adalah 1. Karena 2 berpasangan dengan 1, hasilnya adalah 2. Karena 4 berpasangan dengan 0, hasilnya adalah 0. Karena 8 berpasangan dengan 1, hasilnya adalah 8, dan karena 16 berpasangan dengan 1, hasilnya adalah 16. 32 berpasangan dengan 0 sehingga hasilnya 0 dan 64 berpasangan dengan 0 sehingga hasilnya adalah 0, sedangkan 128 berpasangan dengan 1 sehingga hasilnya 128.}
+
+5). Tambahkan nilai akhirnya. Sekarang, tambahkan semua angka yang tertulis di bawah digit angka biner. Inilah yang Anda lakukan: 128 + 0 + 0 + 16 + 8 + 0 + 2 + 1 = 155. Ini adalah angka desimal yang setara dengan angka biner 10011011.
+
+6). Tulislah jawaban Anda dengan subskrip basisnya. Sekarang, Anda harus menulis 15510, untuk menunjukkan bahwa angka itu adalah desimal, yang memiliki kelipatan 10. Semakin Anda terbiasa mengubah biner menjadi desimal, akan lebih mudah untuk Anda mengingat kuadrat dua, dan Anda akan mampu mengubahnya dengan lebih cepat.
+
+7). Gunakan cara ini untuk mengubah angka biner dengan titik desimal ke dalam bentuk desimal. Anda bisa menggunakan cara ini saat Anda ingin mengubah angka biner seperti 1,12 menjadi desimal. Yang harus Anda lakukan adalah mengetahui bahwa angka di bagian kiri desimal adalah posisi satuan, sedangkan angka di bagian kanan desimal adalah posisi setengah, atau 1 x (1/2).
+
+\textit{Angka 1 di bagian kiri titik desimal sama dengan 20, atau 1. Angka 1 di bagian kanan desimal sama dengan 2-1, atau 0,5. Tambahkan 1 dan 0,5 sehingga hasilnya 1,5 yang dapat ditulis 1,12 dalam notasi desimal.}
+
+\section*{Angka Penting (\textit{Significant Figures})}
+
+Angka penting (\textit{significant figures}) adalah digit angka yang memiliki makna dalam membentuk resolusi (akurasi dan presisi) pengukuran.
+
+Dengan kata lain, ide di balik angka penting ini adalah ketika kita mempunyai angka-angka hasil pengukuran, kita tepat dalam menampilkan resolusi alat ukurnya. Sehingga, hasilnya tidak lebih (atau kurang) teliti daripada objek yang benar-benar kita ukur.
+
+Adapun aturan-aturan yang berlaku untuk angka penting diantaranya:
+
+!). Semua angka yang bukan nol (1,2,3,4,5,6,7,8,9) merupakan angka penting.
+
+2). Angka nol diantara angka yang bukan nol adalah angka penting.
+
+3). Angka-angka nol awalan bukan angka penting.
+
+4). Pada angka yang memiliki nilai (pecahan) desimal, angka nol akhiran adalah angka penting.
+
+5). Pada angka yang tidak memiliki nilai (pecahan) desimal, angka nol akhiran bisa merupakan angka penting atau tidak, tergantung informasi tambahan. Bisa berupa garis bawah.
+
+\section*{Eror dalam Metode Numerik(\textit{Galat})}
+
+Galat atau biasa disebut error dalam metode numerik adalah selisih yang ditimbulkan antara nilai sebenarnya dengan nilai yang dihasilkan dengan metode numerik.
+
+Dalam metode numerik, hasil yang diperoleh bukanlah hasil yang sama persis dengan nilai sejatinya. Akan selalu ada selisih, karena hasil yang didapat dengan metode numerik merupakan hasil yang diperoleh dengan proses iterasi (looping) untuk menghampiri nilai sebenarnya. Walaupun demikian bukan berarti hasil yang didapat dengan metode numerik salah, karena galat tersebut dapat di tekan sekecil mungkin sehingga hasil yang didapat sangat mendekati nilai sebenarnya atau bisa dikatakan galatnya mendekati nol.
+
+Besar kecilnya galat sangat relatif, tergantung berapa besar galat jika dibandingkan dengan nikai sebenarnya. Misalnya seseorang mengukur panjang sebuah bidang adalah 49 cm, padalah panjang sebenranya adalah 50 cm, maka galatnya adalah 50 – 49 =  1 cm. Kemudian temannya mengukur sebuah bidang yang lain panjangnya adalah 149 cm, padahal panjang sebenarnya adalah 150 cm, maka galatnya adalah 150 – 149 = 1 cm. pada kedua pengukuran tersebut masing-masing punya galat 1 cm, tapi pada pengukuran pertama galatnya lebih signifikan dibanding dengan pengukuran yang kedua, karena galat relatif pengukuran pertama adalah 1/50 = 0.02, sedangkan galat relatif pengukuran kedua adalah 1/150 = 0.00667.
+
+\textbf{Bagaimana galat bisa timbul}
+
+Secara umum sumber utama galat ada dua yaitu:
+
+1). Galat pemotongan.
+
+2). Galat pembulatan.
+
+*) \textbf{Galat pemotongan}
+
+Galat pemotongan adalah galat yang ditimbulkan oleh pembatasan jumlah komputasi yang digunakan pada proses metode numerik. Banyak metode dalam metode numerik yang penurunan rumusnya menggunakan proses iterasi yang  jumlahnya tak terhingga, sehingga untuk membatasi proses penghitungan, jumlah iterasi dibatasi sampai langkah ke n. Hasil penghitungan sampai langkah ke n akan menjadi hasil hampiran dan nilai penghitungan langkah n keatas akan menjadi galat pemotongan. dalam hal ini galat pemotongan kan menjadi sangat kecil sekali jika nilai n di perbesar. Konsekuensinya tentu saja jumlah proses penghitungannya akan semakin banyak.
+
+*) \textbf{Galat pembulatan}
+
+Galat pembulatan adalah galat yang ditimbulkan oleh keterbatasan komputer dalam menyajikan bilangan real. Hampir semua proses penghitungan dalam metode numerik menggunakan bilangan real. Penyajian bilangan real yang panjangnya tak terhingga tidak bisa disajikan secara tepat. Misalnya 1/6 akan menghasilkan nilai real 0.66666666…….. Digit 6 pada bilangan tersebut panjangnya tidak terbatas. Sehingga untuk melanjutkan proses penghitungan bilangan tersebut dibulatkan menjadi 0.6667, tergantung berapa digit angka yang dibutuhkan. Dalam hal ini selisih antara 0.666666… dan 0.6667 disebut galat pembulatan. 
+
+Dalam implementasinya, kedua galat tersebut kerap muncul bersamaan, Sehingga galat total yang dihasilkan oleh sebuah proses metode numerik adalah galat pemotongan dan galat pembulatan. Jumlah kedua galat tersebut disebut galat total.
+
+\section*{Numerical Analysis Assignment}
+
+\section*{Bagian A}
+Berikanlah jumlah penomoran (banyaknya angka penting) dari significant digits di masing-masing nomor berikut:
+
+1). 1278.50 (6 Angka Penting)
+
+2). 1200000 (2 Angka Penting)
+
+3). 90027.00 (7 Angka Penting) 
+
+4). 0.0053567 (5 Angka Penting)
+
+5). 670 (2 Angka Penting)
+
+6). 823.012 (6 Angka Penting)
+
+7). 3.47 (3 Angka Penting)
+
+8). 43.050 (5 Angka Penting)
+
+9). 2.60 (3 Angka Penting)
+
+10). 8.002 (4 Angka Penting)
+
+\section*{Bagian B}
+Bulatkanlah angka-angka berikut ini menjadi tiga digit angka penting:
+
+1). 120000
+=> 120000 hanya memiliki 2 angka penting yaitu 1 dan 2 sedangkan empat angka 0 selebihnya tidak termasuk angka penting, jika dibulatkan pun menjadi 100000 yang membuatnya menjad 1 angka penting).
+Menurut saya mungkin jika ingin membuat 100000 menjadi 3 angka penting kita bisa menambahkan koma setelah angka 1 dan cukup diikuti dengan 2 angka 0 dibelakangnya menjadi 1,00. Dengan begitu 1,00 akan memiliki 3 angka penting.
+
+2). 5.457
+=> 5,457 memiliki 4 angka penting yaitu 5,4,5, dan 7. Jika dibulatkan menjadi tiga angka penting menjadi 5,46.
+
+3). 0.0008769
+=> 0,0008769 memiliki 4 angka penting yaitu 8,7,6, dan 9. Sedangkan, empat digit angka 0 tidak termasuk angka penting karena tidak menunjukkan akurasi atau apapun. Jika dibulatkan menjadi tiga angka penting maka 0,0008769 menjadi 0,000877.
+
+4). 4.53619
+=> 4,53619 memiliki 6 angka penting yaitu 4,5,3,6,1, dan 9. Jika dibulatkan menjadi tiga angka penting menjadi 4,54.
+
+5). 43.659
+=> 43,659 memiliki 5 angka penting yaitu 4,3,6,5, dan 9. Jika dibulatkan menjadi tiga angka penting menjadi 43,7.
+
+6). 876493
+=> 876493 memiliki 6 angka penting yaitu 8,7,6,4,9 dan 3. Jika dibulatkan menjadi tiga angka penting menjadi 876.
+
+\end{document}
